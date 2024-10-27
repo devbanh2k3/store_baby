@@ -45,7 +45,13 @@
         {% if product %}
           <div class="grid-item">
             <a href="{{ product.url }}">
-              <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}" class="product-image">
+              <div class="image-container">
+                <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}" class="product-image">
+                <form action="/cart/add" method="post" enctype="multipart/form-data" class="add-to-cart-form">
+                  <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                  <button type="submit" class="add-to-cart-button">Add to Cart</button>
+                </form>
+              </div>
             </a>
             <div class="product-info">
               <a href="{{ product.url }}">
@@ -56,10 +62,6 @@
                   {{ product.price | money }}
                 </a>
               </p>
-              <form action="/cart/add" method="post" enctype="multipart/form-data" class="add-to-cart-form">
-                <input type="hidden" name="id" value="{{ product.variants.first.id }}">
-                <button type="submit" class="add-to-cart-button">Add to Cart</button>
-              </form>
             </div>
           </div>
         {% endif %}
@@ -98,17 +100,35 @@
     transform: scale(1.05); /* Phóng to khi hover */
 }
 
+.image-container {
+    position: relative; /* Đặt vị trí tương đối để nút có thể được định vị */
+}
+
 .product-image {
     width: 100%; /* Full width */
     height: auto;
 }
 
-.product-info {
-    margin-top: 10px; /* Khoảng cách giữa hình ảnh và thông tin */
+.add-to-cart-form {
+    position: absolute;
+    bottom: 0; /* Đặt nút ở dưới cùng */
+    left: 50%; /* Căn giữa theo chiều ngang */
+    transform: translateX(-50%); /* Căn giữa */
+    width: 100%; /* Chiếm toàn bộ chiều rộng */
+    display: flex;
+    justify-content: center; /* Căn giữa nút */
+    opacity: 0; /* Ẩn nút ban đầu */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Hiệu ứng chuyển tiếp */
+    transform: translateY(20px); /* Đặt nút dưới vị trí */
 }
 
-.add-to-cart-form {
-    margin-top: 10px; /* Khoảng cách giữa thông tin và nút */
+.grid-item:hover .add-to-cart-form {
+    opacity: 1; /* Hiện nút khi hover */
+    transform: translateY(0); /* Di chuyển nút lên vị trí ban đầu */
+}
+
+.product-info {
+    margin-top: 10px; /* Khoảng cách giữa hình ảnh và thông tin */
 }
 
 .add-to-cart-button {
