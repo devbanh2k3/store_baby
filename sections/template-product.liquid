@@ -1,132 +1,91 @@
-<div class="product-page">
-    <div class="product-images">
-        {% for image in product.images %}
-            <img src="{{ image.src | img_url: 'large' }}" alt="{{ product.title }}" class="product-thumbnail">
+<div class="product-template">
+  <div class="product-gallery">
+    <div class="main-image">
+      <img src="{{ product.images[0].src }}" alt="{{ product.title }}">
+    </div>
+    <div class="thumbnail-images">
+      {% for image in product.images %}
+        <img src="{{ image.src }}" alt="{{ product.title }}" class="thumbnail" onclick="changeMainImage('{{ image.src }}')">
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="product-details">
+    <h1>{{ product.title }}</h1>
+    <p class="price">{{ product.price | money }}</p>
+    
+    <div class="variants">
+      <label for="variant-select">Choose a variant:</label>
+      <select id="variant-select">
+        {% for variant in product.variants %}
+          <option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
         {% endfor %}
+      </select>
     </div>
     
-    <div class="product-details">
-        <h1>{{ product.title }}</h1>
-        <p class="product-price">{{ product.price | money }}</p>
-        
-        <p class="product-description">{{ product.description }}</p>
-
-        <div class="product-material">
-            <h3>Material</h3>
-            <span>Cotton</span>
-        </div>
-
-        <div class="product-colors">
-            <h3>Color</h3>
-            <div class="color-options">
-                <span class="color-swatch" style="background-color: red;"></span>
-                <span class="color-swatch" style="background-color: black;"></span>
-                <span class="color-swatch" style="background-color: white;"></span>
-                <span class="color-swatch" style="background-color: maroon;"></span>
-            </div>
-        </div>
-
-        <form action="/cart/add" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="id" value="{{ product.variants.first.id }}">
-            <div class="quantity-selector">
-                <button type="button" class="quantity-minus">-</button>
-                <input type="number" name="quantity" value="1" min="1" class="quantity-input">
-                <button type="button" class="quantity-plus">+</button>
-            </div>
-            <button type="submit" class="btn add-to-cart">Add To Cart</button>
-            <button type="button" class="btn buy-now">Buy It Now</button>
-        </form>
-
-        <div class="estimated-delivery">
-            <p>Estimated delivery: Jan 23 - Jan 26</p>
-            <p>Free Shipping & Returns: On orders above $79</p>
-        </div>
-
-        <div class="payment-methods">
-            <img src="path_to_payment_icon_visa" alt="Visa">
-            <img src="path_to_payment_icon_mastercard" alt="MasterCard">
-            <img src="path_to_payment_icon_amex" alt="Amex">
-            <img src="path_to_payment_icon_paypal" alt="PayPal">
-        </div>
+    <div class="quantity">
+      <label for="quantity">Quantity:</label>
+      <input type="number" id="quantity" value="1" min="1">
     </div>
+    
+    <button class="btn add-to-cart" onclick="addToCart()">Add to Cart</button>
+    <button class="btn buy-now" onclick="buyNow()">Buy Now</button>
+  </div>
+
+  <div class="product-description">
+    <h2>Description</h2>
+    <p>{{ product.description }}</p>
+  </div>
+
+  <div class="shipping-info">
+    <h2>Shipping Information</h2>
+    <p>Thông tin về giao hàng...</p>
+  </div>
+
+  <div class="reviews">
+    <h2>Reviews</h2>
+    <div class="review-list">
+      {% for review in product.reviews %}
+        <div class="review">
+          <p>{{ review.author }}: {{ review.content }}</p>
+          <p>Rating: {{ review.rating }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
 </div>
+
+<script>
+  function changeMainImage(src) {
+    document.querySelector('.main-image img').src = src;
+  }
+
+  function addToCart() {
+    // Logic to add the product to the cart
+  }
+
+  function buyNow() {
+    // Logic to buy the product immediately
+  }
+</script>
+
 <style>
-  .product-page {
+  .product-template {
     display: flex;
-    gap: 30px;
+  }
+  .product-gallery {
+    flex: 1;
+  }
+  .product-details {
+    flex: 1;
     padding: 20px;
-}
-
-.product-images {
-    flex: 1;
-}
-
-.product-images img {
-    width: 100%;
-    border: 1px solid #ddd;
-    margin-bottom: 10px;
-}
-
-.product-details {
-    flex: 1;
-}
-
-.product-price {
-    font-size: 24px;
-    color: #ff0000;
-    margin: 10px 0;
-}
-
-.product-material, .product-colors {
-    margin: 15px 0;
-}
-
-.color-options {
-    display: flex;
-    gap: 10px;
-}
-
-.color-swatch {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: 1px solid #ddd;
+  }
+  .thumbnail {
+    width: 50px;
     cursor: pointer;
-}
-
-.quantity-selector {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 15px 0;
-}
-
-.quantity-minus, .quantity-plus {
-    background-color: #f0f0f0;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
-.add-to-cart, .buy-now {
-    display: block;
+  }
+  .btn {
+    display: inline-block;
     margin-top: 10px;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-}
-
-.buy-now {
-    background-color: #ff69b4;
-    color: #fff;
-}
-
-.estimated-delivery {
-    margin: 20px 0;
-}
-
-.payment-methods img {
-    width: 40px;
-    margin-right: 10px;
-}
+  }
 </style>
