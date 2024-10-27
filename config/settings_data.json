@@ -209,11 +209,27 @@
             "settings": {
               "title": "Product reviews"
             }
+          },
+          "all_tab_KLGHdw": {
+            "type": "all_tab",
+            "settings": {
+              "title": "Tab title",
+              "page": ""
+            }
+          },
+          "all_tab_QxxHjD": {
+            "type": "all_tab",
+            "settings": {
+              "title": "Tab title",
+              "page": "contact"
+            }
           }
         },
         "block_order": [
           "1524829489002",
-          "1570618849665"
+          "1570618849665",
+          "all_tab_KLGHdw",
+          "all_tab_QxxHjD"
         ],
         "settings": {
           "product_view_type": "carousel_big",
