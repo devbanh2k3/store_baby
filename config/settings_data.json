@@ -232,8 +232,11 @@
           "show_desc": true,
           "show_notify_button": true,
           "show_policy": false,
+          "security_page": "",
           "security_text": "Security policy",
+          "delivery_page": "",
           "delivery_text": "Delivery policy",
+          "return_page": "",
           "return_text": "Return policy",
           "show_related_products": true,
           "related_products_title": "Related product"
@@ -1383,6 +1386,7 @@
       "1620303876b256c9cb",
       "1567074526361",
       "test_demo_UgbCpW",
+      "featured_products_code_D9HPig",
       "1566388074654",
       "1569058050008",
       "1569058924109",
@@ -1394,8 +1398,7 @@
       "162031053381861dbd",
       "1620310556021b6ffb",
       "1620310568520faf17",
-      "index_featured_products_custom_FKbtVN",
-      "featured_products_code_D9HPig"
+      "index_featured_products_custom_FKbtVN"
     ]
   },
   "presets": {
