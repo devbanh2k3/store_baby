@@ -1,55 +1,69 @@
+<style>
+    .banner-section {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .banner {
+        padding: 20px;
+        text-align: center;
+        color: white;
+    }
+
+    .banner-large {
+        background-color: #4CAF50; /* Màu xanh lá cây */
+        flex: 0 0 50%; /* Chiếm 50% chiều rộng */
+    }
+
+    .banner-small {
+        background-color: #2196F3; /* Màu xanh dương */
+        flex: 0 0 12.5%; /* Chiếm 12.5% chiều rộng */
+    }
+
+    .featured-content {
+        margin: auto; /* Căn giữa nội dung */
+    }
+
+    .link {
+        color: #fff; /* Màu chữ link */
+        text-decoration: underline; /* Gạch chân chữ link */
+    }
+</style>
+
+<div class="banner-section">
+    <div class="banner banner-large">
+        <div class="featured-content">
+            <h3>Onesie</h3>
+            <a class="link" href="/">23 items</a>    
+        </div>
+    </div>
+    <div class="banner banner-small">
+        <h3>Banner nhỏ 1</h3>
+        <a class="link" href="/">Link 1</a>
+    </div>
+    <div class="banner banner-small">
+        <h3>Banner nhỏ 2</h3>
+        <a class="link" href="/">Link 2</a>
+    </div>
+    <div class="banner banner-small">
+        <h3>Banner nhỏ 3</h3>
+        <a class="link" href="/">Link 3</a>
+    </div>
+    <div class="banner banner-small">
+        <h3>Banner nhỏ 4</h3>
+        <a class="link" href="/">Link 4</a>
+    </div>
+</div>
+
 {% schema %}
 {
-  "name": "Banner",
-  "settings": [
-    {
-      "type": "image_picker",
-      "id": "banner_image",
-      "label": "Banner Image"
-    },
-    {
-      "type": "text",
-      "id": "banner_text",
-      "label": "Banner Text",
-      "default": "Your Banner Text Here"
-    },
-    {
-      "type": "text",
-      "id": "banner_subtext",
-      "label": "Banner Subtext",
-      "default": "Your Subtext Here"
-    }
-  ],
+  "name": "Banner Section",
+  "settings": [],
   "presets": [
     {
-      "name": "Banner3",
+      "name": "Default",
       "category": "Custom"
     }
   ]
 }
 {% endschema %}
-
-<div class="banner" style="background-image: url({{ settings.banner_image | img_url: '1600x' }});">
-  <div class="banner-content">
-    <h1>{{ settings.banner_text }}</h1>
-    <p>{{ settings.banner_subtext }}</p>
-  </div>
-</div>
-
-<style>
-.banner {
-  height: 400px;
-  background-size: cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-}
-.banner-content h1 {
-  font-size: 2.5rem;
-}
-.banner-content p {
-  font-size: 1.2rem;
-}
-</style>
