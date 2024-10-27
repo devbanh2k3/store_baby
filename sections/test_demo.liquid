@@ -1,5 +1,5 @@
 <style>
-     .banner-section {
+      .banner-section {
         display: flex;
         flex-wrap: wrap; /* Cho phép nội dung cuộn lại trên màn hình nhỏ */
     }
@@ -7,15 +7,15 @@
     .banner-large {
         background-color: #4CAF50; /* Màu xanh lá cây */
         flex: 0 0 50%; /* Chiếm 50% chiều rộng trên màn hình lớn */
-        padding: 20px;
-        text-align: center;
-        color: white;
+        padding: 0; /* Bỏ padding để hình ảnh full */
         position: relative; /* Để có thể định vị chữ bên trong */
+        overflow: hidden; /* Giấu phần ngoài */
     }
 
     .banner-large img {
-        max-width: 100%; /* Đảm bảo hình ảnh vừa với container */
-        height: auto; /* Giữ tỷ lệ khung hình */
+        width: 100%; /* Đảm bảo hình ảnh chiếm toàn bộ chiều rộng */
+        height: 100%; /* Đảm bảo hình ảnh chiếm toàn bộ chiều cao */
+        object-fit: cover; /* Giữ tỷ lệ hình ảnh và chiếm toàn bộ không gian */
     }
 
     .featured-content {
@@ -36,15 +36,15 @@
     .banner-small {
         background-color: #2196F3; /* Màu xanh dương */
         flex: 0 0 50%; /* Chiếm 50% chiều rộng trong mỗi hàng */
-        padding: 20px;
-        text-align: left; /* Căn trái chữ */
+        padding: 0; /* Bỏ padding để hình ảnh full */
         position: relative; /* Để định vị nội dung bên trong */
-        overflow: hidden; /* Giấu phần link khi không hover */
+        overflow: hidden; /* Giấu phần ngoài */
     }
 
     .banner-small img {
-        max-width: 100%; /* Đảm bảo hình ảnh vừa với container */
-        height: auto; /* Giữ tỷ lệ khung hình */
+        width: 100%; /* Đảm bảo hình ảnh chiếm toàn bộ chiều rộng */
+        height: 100%; /* Đảm bảo hình ảnh chiếm toàn bộ chiều cao */
+        object-fit: cover; /* Giữ tỷ lệ hình ảnh và chiếm toàn bộ không gian */
     }
 
     .small-content {
