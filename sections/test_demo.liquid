@@ -6,7 +6,7 @@
 
     .banner-large {
         background-color: #4CAF50; /* Màu xanh lá cây */
-        flex: 0 0 100%; /* Chiếm toàn bộ chiều rộng trên màn hình nhỏ */
+        flex: 0 0 50%; /* Chiếm 50% chiều rộng trên màn hình lớn */
         padding: 20px;
         text-align: center;
         color: white;
@@ -29,8 +29,8 @@
 
     .banner-small-container {
         display: flex;
-        flex-wrap: wrap;
-        flex: 0 0 100%; /* Chiếm toàn bộ chiều rộng trên màn hình nhỏ */
+        flex-wrap: wrap; /* Cho phép cuộn lại trên màn hình nhỏ */
+        flex: 0 0 50%; /* Chiếm 50% chiều rộng */
     }
 
     .banner-small {
@@ -56,12 +56,11 @@
         color: white; /* Màu chữ */
     }
 
-    .link {
-        color: #fff; /* Màu chữ link */
-        text-decoration: underline; /* Gạch chân chữ link */
-    }
-
     @media (max-width: 768px) {
+        .banner-large {
+            flex: 0 0 100%; /* Chiếm toàn bộ chiều rộng trên màn hình nhỏ */
+        }
+
         .banner-small {
             flex: 0 0 100%; /* Chiếm toàn bộ chiều rộng trên màn hình nhỏ */
         }
@@ -70,7 +69,7 @@
 
 <div class="banner-section">
     <div class="banner-large">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcqu-WYDYhXj_FRbcuGYbi1hVLXUMAgHasag&s" alt="Onesie">
+        <img src="link_to_your_large_image.jpg" alt="Onesie">
         <div class="featured-content">
             <h3>Onesie</h3>
             <a class="link" href="/">23 items</a>
@@ -85,21 +84,21 @@
             </div>
         </div>
         <div class="banner-small">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcqu-WYDYhXj_FRbcuGYbi1hVLXUMAgHasag&s" alt="Banner nhỏ 2">
+            <img src="link_to_your_small_image2.jpg" alt="Banner nhỏ 2">
             <div class="small-content">
                 <h3>Banner nhỏ 2</h3>
                 <a class="link" href="/">Link 2</a>
             </div>
         </div>
         <div class="banner-small">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcqu-WYDYhXj_FRbcuGYbi1hVLXUMAgHasag&s" alt="Banner nhỏ 3">
+            <img src="link_to_your_small_image3.jpg" alt="Banner nhỏ 3">
             <div class="small-content">
                 <h3>Banner nhỏ 3</h3>
                 <a class="link" href="/">Link 3</a>
             </div>
         </div>
         <div class="banner-small">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcqu-WYDYhXj_FRbcuGYbi1hVLXUMAgHasag&s" alt="Banner nhỏ 4">
+            <img src="link_to_your_small_image4.jpg" alt="Banner nhỏ 4">
             <div class="small-content">
                 <h3>Banner nhỏ 4</h3>
                 <a class="link" href="/">Link 4</a>
