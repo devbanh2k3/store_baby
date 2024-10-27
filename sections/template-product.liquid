@@ -75,12 +75,96 @@
 
 				</div>
 
-					
+			{% when 'sticky'  %}
+				<div class="single_product__img col-md-6 col-lg-8">
+					<div class="product__img_wrap">
+						{% case product.images.size %}
+							{% when 0 %}
+								<img src="{{ 'no_image.png' | asset_url }}" alt="">
+							{% when 1 %}
+								<img class="lazyload" src="{{ product.featured_image.src | product_img_url: '150x225', crop: section.settings.image_alignment }}" data-src="{{ product.featured_image.src | img_url: '580x870', crop: section.settings.image_alignment }}" alt="{{ product.featured_image.alt }}">
+
+							{% else %}
+								{% for image in product.images %}
+									<img class="lazyload" src="{{ image.src | product_img_url: '150x225', crop: section.settings.image_alignment }}" data-src="{{ image.src | img_url: '580x870', crop: section.settings.image_alignment }}" alt="{{ image.alt }}">
+								{% endfor %}
+						{% endcase %}
+					</div>	
+				</div>
+
+			{% when 'tile'  %}
+				<div class="single_product__img col-md-6 col-lg-8">
+					<div class="product__img_wrap">
+						{% case product.images.size %}
+							{% when 0 %}
+								<div class="product__img_item">
+									<img src="{{ 'no_image.png' | asset_url }}" alt="">
+								</div>
+							{% when 1 %}
+								<div class="product__img_item">
+									<img class="lazyload" src="{{ product.featured_image.src | product_img_url: '100x150', crop: section.settings.image_alignment }}" data-src="{{ product.featured_image.src | img_url: '365x547', crop: section.settings.image_alignment }}" alt="{{ product.featured_image.alt }}">
+									<span class="product__img_zoom" data-zoom_image="{{ product.featured_image.src | img_url: '640x', crop: section.settings.image_alignment }}">
+										<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M8 6H10V8H12V10H10V12H8V10H6V8H8V6Z" fill="white"/>
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M20 18.5787L16.2437 14.8223C17.4619 13.2995 18.2741 11.269 18.2741 9.13706C18.2741 4.06091 14.2132 0 9.13706 0C4.06091 0 0 4.06091 0 9.13706C0 14.2132 4.06091 18.2741 9.13706 18.2741C11.269 18.2741 13.2995 17.5635 14.8223 16.2437L18.5787 20L20 18.5787ZM2.03046 9.13706C2.03046 5.17766 5.17766 2.03046 9.13706 2.03046C13.0964 2.03046 16.2437 5.17766 16.2437 9.13706C16.2437 13.0964 13.0964 16.2437 9.13706 16.2437C5.17766 16.2437 2.03046 13.0964 2.03046 9.13706Z" fill="white"/>
+										</svg>
+									</span>
+								</div>
+
+							{% else %}
+								{% for image in product.images %}
+									<div class="product__img_item">
+										<img class="lazyload" src="{{ image.src | product_img_url: '100x150', crop: section.settings.image_alignment }}" data-src="{{ image.src | img_url: '365x547', crop: section.settings.image_alignment }}" alt="{{ image.alt }}">
+										<span class="product__img_zoom" data-zoom_image="{{ image.src | img_url: '640x', crop: section.settings.image_alignment }}">
+										<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M8 6H10V8H12V10H10V12H8V10H6V8H8V6Z" fill="white"/>
+											<path fill-rule="evenodd" clip-rule="evenodd" d="M20 18.5787L16.2437 14.8223C17.4619 13.2995 18.2741 11.269 18.2741 9.13706C18.2741 4.06091 14.2132 0 9.13706 0C4.06091 0 0 4.06091 0 9.13706C0 14.2132 4.06091 18.2741 9.13706 18.2741C11.269 18.2741 13.2995 17.5635 14.8223 16.2437L18.5787 20L20 18.5787ZM2.03046 9.13706C2.03046 5.17766 5.17766 2.03046 9.13706 2.03046C13.0964 2.03046 16.2437 5.17766 16.2437 9.13706C16.2437 13.0964 13.0964 16.2437 9.13706 16.2437C5.17766 16.2437 2.03046 13.0964 2.03046 9.13706Z" fill="white"/>
+											</svg>
+										</span>
+									</div>
+								{% endfor %}
+						{% endcase %}
+					</div>	
+				</div>
+
+			{% when 'carousel_big'  %}
+				{%- assign imagesNum = product.images.size -%}
+				{%- assign imagesCount = product.images.size | plus: 0 -%}
+
+				{%- assign product_info_class = 'col-sm-12' -%}
+
+				<div class="single_product__img col-sm-12">
+					{% case product.images.size %}
+						{% when 0 %}
+							<img src="{{ 'no_image.png' | asset_url }}" alt="">
+						{% when 1 %}
+							<img src="{{ product.featured_image.src | product_img_url: '370x370', crop: section.settings.image_alignment }}" alt="">
+
+						{% else %}
+							
+							<div id="gallery_big-{{ section.id }}" class="gallery_big swiper-container">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+										<img id="primary_img_{{ section.id }}" src="{{ product.images.first | product_img_url: '370x370', crop: section.settings.image_alignment }}" alt="{{ product.images.first.alt }}">
+									</div>
+
+									{% for image in product.images offset:1 %}
+										<div class="swiper-slide">
+											<img src="{{ image.src | product_img_url: '370x370', crop: section.settings.image_alignment }}" alt="">
+										</div>
+									{% endfor %}
+								</div>
+							</div>
+
+							<div id="prev_big_{{ section.id }}" class="swiper_btn swiper_btn__prev"></div>
+							<div id="next_big_{{ section.id }}" class="swiper_btn swiper_btn__next"></div>
+					{% endcase %}
+				</div>
 
 		{% endcase %}
 
 
-		<div class="single_product__info col-md-6 col-lg-4">
+		<div class="single_product__info {% if section.settings.product_view_type == 'carousel_big' %} col-md-9 col-lg-12 {% else %} col-md-6 col-lg-4 {% endif %}">
 			<div class="single_product__details">
 				<form action="/cart/add" method="post" enctype="multipart/form-data" data-section="{{ section.id }}">
 					
@@ -219,7 +303,7 @@
 
 							<div class="quantity_box">
 								<input id="single_product__quantity-{{ section.id }}" class="quantity_input" type="text" name="quantity" value="1">
-								<button type="submit" name="add" class="btn btn_alt" id="single_product__addtocart-{{ section.id }}">
+								<button type="submit" name="add" class="btn" id="single_product__addtocart-{{ section.id }}">
 									<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path d="M20 20H0V6H20V20ZM2 18H18V8H2V18Z"/>
 										<path d="M14 3.99995H12C12 3.49995 11.8 2.99995 11.4 2.59995C10.7 1.89995 9.3 1.89995 8.6 2.59995C8.2 2.89995 8 3.39995 8 3.99995H6C6 2.89995 6.4 1.89995 7.2 1.19995C8.7 -0.300049 11.3 -0.300049 12.9 1.19995C13.6 1.89995 14 2.89995 14 3.99995Z"/>
@@ -395,7 +479,7 @@
 		</div>
 	</div>
 
-{% if section.settings.product_view_type == 'carousel' %}
+{% if section.settings.product_view_type == 'carousel' or section.settings.product_view_type == 'carousel_big' %}
 	{% if section.settings.show_desc %}
 		{% if section.blocks.size > 0 %}
 			<div class="tab_content_wrapper">
@@ -521,7 +605,7 @@
 								{% unless forloop.last and current_product_found %}
 									{% assign product = prod %}
 									<div class="swiper-slide product product__{% cycle 'counter': '1','2','3','4','5','6' %}">
-										{% include 'product-listing-item' img_size: '380x565', img_alignment: section.settings.image_alignment %}
+										{% include 'product-listing-item' img_size: '380x380', img_alignment: section.settings.image_alignment %}
 									</div>
 								{% endunless %}
 							{% endunless %}
@@ -553,15 +637,19 @@
 			"options": [
 				{
 					"value": "sticky",
-					"label": "Sticky (Upgrade to a Fully-fledged template)"
+					"label": "Sticky"
 				},
 				{
 					"value": "carousel",
 					"label": "Carousel"
 				},
 				{
+					"value": "carousel_big",
+					"label": "Big img carousel"
+				},
+				{
 					"value": "tile",
-					"label": "Tile (Upgrade to a Fully-fledged template)"
+					"label": "Tile"
 				}
 			]
 		},
@@ -1107,6 +1195,49 @@ jQuery(document).ready(function($) {
 	};
 
 
+	// BIG CAROUSEL VIEW 
+
+	if ( productImage && theme.productViewType == 'carousel_big' ){
+
+			// PRODUCT IMAGES
+			var primaryImg = $('#primary_img_' + sectionID);
+
+			var galleryImages = $('#gallery_big-' + sectionID);
+
+			var galleryThumbs = $('#gallery_thumbs-' + sectionID);
+
+			var galleryImageSlider = new Swiper(galleryImages, {
+
+				effect: 'slide',
+				slidesPerView: 3,
+				spaceBetween: 10,
+				speed: 500,
+				touchRatio: 0.2,
+				slideToClickedSlide: true,
+				breakpoints: {
+					991: {
+						slidesPerView: 2
+					},
+					767: {
+						slidesPerView: 1
+					}
+				},
+				navigation: {
+					nextEl: '.swiper_btn__next',
+					prevEl: '.swiper_btn__prev'
+				},
+
+			});
+
+			$(window).on('load', function() {
+				galleryImageSlider.onResize(); // updating swiper after loading
+			});
+
+		};
+
+
+
+
 	// STICKY VIEW 
 	if( theme.productViewType == 'sticky' && $(window).width() > 991 ){
 		var target = $('.single_product__info');
@@ -1180,16 +1311,19 @@ jQuery(document).ready(function($) {
 	if ( theme.productRelatedView ) {
 		var productRelatedSlider = new Swiper( '#widget_related_slideshow', {  
 			effect: 'slide',
-			slidesPerView: 3,
+			slidesPerView: 4,
 			spaceBetween: 20,
 			speed: 500,
 			breakpoints: {
 				992: {
-					slidesPerView: 2
+					slidesPerView: 3
 				},
 				576: {
+					slidesPerView: 2
+				},
+				480: {
 					slidesPerView: 1
-				}
+				} 
 			},
 			pagination: {
 				el: '.widget_related_slideshow_pagination',
