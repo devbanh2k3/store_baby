@@ -4,6 +4,7 @@
         width: 80%;
         display: flex;
         flex-wrap: wrap; /* Cho phép nội dung cuộn lại trên màn hình nhỏ */
+        gap: 10px; /* Khoảng cách giữa các banner */
     }
 
     .banner-large {
@@ -14,7 +15,6 @@
         overflow: hidden; /* Giấu phần ngoài */
         border-radius: 10px; /* Bo góc cho banner lớn */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Đổ bóng */
-        margin-right: 10px; /* Khoảng cách bên phải */
     }
 
     .banner-large img {
@@ -85,7 +85,7 @@
     @media (max-width: 1024px) {
         .banner-large {
             flex: 0 0 100%; /* Chiếm toàn bộ chiều rộng trên tablet */
-            margin-right: 0; /* Bỏ khoảng cách bên phải trên tablet */
+            margin-bottom: 10px; /* Khoảng cách dưới cho banner lớn */
         }
 
         .banner-small {
