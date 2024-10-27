@@ -75,17 +75,24 @@
 }
 
 .grid-item {
-  width: 22%; /* Điều chỉnh cho không gian */
+  width: 22%; /* Điều chỉnh không gian cho từng sản phẩm */
   margin-bottom: 20px;
+  border-radius: 10px; /* Bo góc */
+  overflow: hidden; /* Ẩn phần thừa */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Đổ bóng */
+  transition: transform 0.2s; /* Hiệu ứng chuyển tiếp */
+}
+
+.grid-item:hover {
+  transform: scale(1.05); /* Phóng to khi hover */
 }
 
 .product-image {
-  width: 80%; /* Chiếm 80% chiều rộng */
+  width: 100%; /* Full width */
   height: auto;
 }
 
 .product-info {
-  backgroud-color:red;
   margin-top: 10px; /* Khoảng cách giữa hình ảnh và thông tin */
 }
 
