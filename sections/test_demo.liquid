@@ -1,167 +1,55 @@
-<div class="section_wrap" {% if section.settings.background_toggle %} style="background-color: {{ section.settings.bg_color }}"{% endif %}>
-
-  {% if section.settings.section_title.size > 0 %}
-    <div class="container">
-      <h4 class="section_heading"><span>{{ section.settings.section_title }}</span></h4>
-    </div>
-  {% endif %}
-
-  <div class="row">
-    <div class="col-sm-4 left-banner">
-      {% for block in section.blocks limit: 1 %}
-        {% if block.type == 'banner_100' %}
-          <div class="banner_item">
-            <img style="width: 100%" class="banner_image" src="{{ block.settings.item_img | img_url: '1920x700', crop: 'center' }}" alt="{{ block.settings.image.alt }}">
-            <div class="banner_caption">
-              <h2>{{ block.settings.item_title }}</h2>
-              <p>{{ block.settings.item_text }}</p>
-              {% if block.settings.item_link %}
-                <a class="btn" href="{{ block.settings.item_link }}">{{ block.settings.button_text }}</a>
-              {% endif %}
-            </div>
-          </div>
-        {% endif %}
-      {% endfor %}
-    </div>
-
-    <div class="col-sm-8 right-banners">
-      <div class="row">
-        {% assign counter = 0 %}
-        {% for block in section.blocks offset: 1 %}
-          <div class="col-sm-6">
-            <div class="banner_item">
-              <img style="width: 100%" class="banner_image" src="{{ block.settings.item_img | img_url: '1920x700', crop: 'center' }}" alt="{{ block.settings.image.alt }}">
-              <div class="banner_caption">
-                <h2>{{ block.settings.item_title }}</h2>
-                <p>{{ block.settings.item_text }}</p>
-                {% if block.settings.item_link %}
-                  <a class="btn" href="{{ block.settings.item_link }}">{{ block.settings.button_text }}</a>
-                {% endif %}
-              </div>
-            </div>
-          </div>
-
-          {% assign counter = counter | plus: 1 %}
-          {% if counter == 2 %}
-            </div><div class="row">
-            {% assign counter = 0 %}
-          {% endif %}
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-
-</div>
-
 {% schema %}
 {
-  "name": "Custom Banners",
+  "name": "Banner",
   "settings": [
     {
-      "type": "header",
-      "content": "Banners"
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Banner Image"
     },
     {
       "type": "text",
-      "id": "section_title",
-      "label": "Section Title"
+      "id": "banner_text",
+      "label": "Banner Text",
+      "default": "Your Banner Text Here"
     },
     {
-      "type": "checkbox",
-      "id": "background_toggle",
-      "label": "Show background color",
-      "default": true
-    },
-    {
-      "type": "color",
-      "id": "bg_color",
-      "label": "Background color",
-      "default": "#ffffff"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "banner_100",
-      "name": "Banner (100%)",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "item_img",
-          "label": "Banner image"
-        },
-        {
-          "type": "text",
-          "id": "item_title",
-          "label": "Caption title"
-        },
-        {
-          "type": "text",
-          "id": "item_text",
-          "label": "Caption text"
-        },
-        {
-          "type": "url",
-          "id": "item_link",
-          "label": "Link"
-        },
-        {
-          "type": "text",
-          "id": "button_text",
-          "label": "Button text"
-        }
-      ]
-    },
-    {
-      "type": "banner_50",
-      "name": "Banner (50%)",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "item_img",
-          "label": "Banner image"
-        },
-        {
-          "type": "text",
-          "id": "item_title",
-          "label": "Caption title"
-        },
-        {
-          "type": "text",
-          "id": "item_text",
-          "label": "Caption text"
-        },
-        {
-          "type": "url",
-          "id": "item_link",
-          "label": "Link"
-        },
-        {
-          "type": "text",
-          "id": "button_text",
-          "label": "Button text"
-        }
-      ]
+      "type": "text",
+      "id": "banner_subtext",
+      "label": "Banner Subtext",
+      "default": "Your Subtext Here"
     }
   ],
   "presets": [
     {
-      "name": "Banners2",
+      "name": "Banner3",
       "category": "Custom"
     }
   ]
 }
 {% endschema %}
 
+<div class="banner" style="background-image: url({{ settings.banner_image | img_url: '1600x' }});">
+  <div class="banner-content">
+    <h1>{{ settings.banner_text }}</h1>
+    <p>{{ settings.banner_subtext }}</p>
+  </div>
+</div>
+
 <style>
-  .left-banner {
-    padding: 15px;
-  }
-
-  .right-banners {
-    padding: 15px;
-  }
-
-  .banner_item {
-    margin-bottom: 20px; /* Khoảng cách giữa các banner */
-  }
+.banner {
+  height: 400px;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+.banner-content h1 {
+  font-size: 2.5rem;
+}
+.banner-content p {
+  font-size: 1.2rem;
+}
 </style>
