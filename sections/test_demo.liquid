@@ -1,447 +1,56 @@
-<div class="main-block">
-    <slideshow-component>
-        <div
-            class="slide-promo"
-            data-slider-options="{&quot;loop&quot;: &quot;true&quot;,&quot;effect&quot;: &quot;slide&quot;, &quot;auto_play&quot;: &quot;0&quot;}"
-        >
-            <div
-                class="swiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden"
-                data-swiper-slider=""
-            >
-                <div
-                    class="swiper-wrapper slide-banner banner-- "
-                    id="Slider-template--15362996273255__90a84c93-c18e-4f37-b062-c4907b3c537d"
-                    style="transition-duration: 0ms; transform: translate3d(-1005px, 0px, 0px);"
-                    aria-live="polite"
-                >
-                    <div
-                        class="swiper-slide swiper-slide-duplicate swiper-slide-prev"
-                        id="Slide-template--15362996273255__90a84c93-c18e-4f37-b062-c4907b3c537d-3"
-                        role="group"
-                        aria-roledescription="Slide"
-                        aria-label="3 / 3"
-                        tabindex="-1"
-                        data-swiper-slide-index="2"
-                        style="width: 975px; margin-right: 30px;"
-                    >
-                        <div class="slideshow__media ">
-                            {% if section.settings.image1 != blank -%}
-                                {{-
-                                    section.settings.image1
-                                    | image_url:
-                                        height: section.settings.image1height,
-                                        width: section.settings.image1width
-                                    | image_tag: class: 'desktop-slider', loading: 'lazy'
-                                -}}
-                            {%- endif -%}
-                            {%- if section.settings.image2 != blank -%}
-                                {{-
-                                    section.settings.image2
-                                    | image_url:
-                                        height: section.settings.image2height,
-                                        width: section.settings.image2width
-                                    | image_tag: class: 'mobile-slider', loading: 'lazy'
-                                -}}
-                            {%- endif %}
-                        </div>
-                        <div class="slideshow__text-wrapper banner__content banner__content--bottom-left page-width">
-                            <div class="slideshow__text banner__box content-container content-container--full-width-mobile color-accent-1 gradient slideshow__text--left slideshow__text-mobile--center">
-                                <h2 class="banner__heading ">{{ section.settings.heading1 }}</h2>
-                                <div class="banner__text">
-                                    <span>Available @Baby Planet</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="swiper-slide swiper-slide-active"
-                        id="Slide-template--15362996273255__90a84c93-c18e-4f37-b062-c4907b3c537d-1"
-                        role="group"
-                        aria-roledescription="Slide"
-                        aria-label="1 / 3"
-                        tabindex="-1"
-                        data-swiper-slide-index="0"
-                        style="width: 975px; margin-right: 30px;"
-                    >
-                        <div class="slideshow__media ">
-                            {% if section.settings.image3 != blank -%}
-                                {{-
-                                    section.settings.image3
-                                    | image_url:
-                                        height: section.settings.image3height,
-                                        width: section.settings.image3width
-                                    | image_tag: class: 'desktop-slider', loading: 'lazy'
-                                -}}
-                            {%- endif -%}
-                            {%- if section.settings.image4 != blank -%}
-                                {{-
-                                    section.settings.image4
-                                    | image_url:
-                                        height: section.settings.image4height,
-                                        width: section.settings.image4width
-                                    | image_tag: class: 'mobile-slider', loading: 'lazy'
-                                -}}
-                            {%- endif %}
-                        </div>
-                        <div class="slideshow__text-wrapper banner__content banner__content--bottom-left page-width">
-                            <div class="slideshow__text banner__box content-container content-container--full-width-mobile color-accent-1 gradient slideshow__text--left slideshow__text-mobile--center">
-                                <h2 class="banner__heading ">{{ section.settings.heading2 }}</h2>
-                                <div class="banner__text">
-                                    <span>Babies keep moving...crawl, sit, climb</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="swiper-slide swiper-slide-next"
-                        id="Slide-template--15362996273255__90a84c93-c18e-4f37-b062-c4907b3c537d-2"
-                        role="group"
-                        aria-roledescription="Slide"
-                        aria-label="2 / 3"
-                        tabindex="-1"
-                        data-swiper-slide-index="1"
-                        style="width: 975px; margin-right: 30px;"
-                    >
-                        <div class="slideshow__media ">
-                            {% if section.settings.image5 != blank -%}
-                                {{-
-                                    section.settings.image5
-                                    | image_url:
-                                        height: section.settings.image5height,
-                                        width: section.settings.image5width
-                                    | image_tag: class: 'desktop-slider', loading: 'lazy'
-                                -}}
-                            {%- endif -%}
-                            {%- if section.settings.image6 != blank -%}
-                                {{-
-                                    section.settings.image6
-                                    | image_url:
-                                        height: section.settings.image6height,
-                                        width: section.settings.image6width
-                                    | image_tag: class: 'mobile-slider', loading: 'lazy'
-                                -}}
-                            {%- endif %}
-                        </div>
-                        <div class="slideshow__text-wrapper banner__content banner__content--bottom-left page-width">
-                            <div class="slideshow__text banner__box content-container content-container--full-width-mobile color-accent-1 gradient slideshow__text--left slideshow__text-mobile--center">
-                                <h2 class="banner__heading ">{{ section.settings.heading3 }}</h2>
-                                <div class="banner__text">
-                                    <span>High quality plastic</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="swiper-slide swiper-slide-duplicate-prev"
-                        id="Slide-template--15362996273255__90a84c93-c18e-4f37-b062-c4907b3c537d-3"
-                        role="group"
-                        aria-roledescription="Slide"
-                        aria-label="3 / 3"
-                        tabindex="-1"
-                        data-swiper-slide-index="2"
-                        style="width: 975px; margin-right: 30px;"
-                    >
-                        <div class="slideshow__media ">
-                            {% if section.settings.image7 != blank -%}
-                                {{-
-                                    section.settings.image7
-                                    | image_url:
-                                        height: section.settings.image7height,
-                                        width: section.settings.image7width
-                                    | image_tag: class: 'desktop-slider', loading: 'lazy'
-                                -}}
-                            {%- endif -%}
-                            {%- if section.settings.image8 != blank -%}
-                                {{-
-                                    section.settings.image8
-                                    | image_url:
-                                        height: section.settings.image8height,
-                                        width: section.settings.image8width
-                                    | image_tag: class: 'mobile-slider', loading: 'lazy'
-                                -}}
-                            {%- endif %}
-                        </div>
-                        <div class="slideshow__text-wrapper banner__content banner__content--bottom-left page-width">
-                            <div class="slideshow__text banner__box content-container content-container--full-width-mobile color-accent-1 gradient slideshow__text--left slideshow__text-mobile--center">
-                                <h2 class="banner__heading ">{{ section.settings.heading4 }}</h2>
-                                <div class="banner__text">
-                                    <span>Available @Baby Planet</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active"
-                        id="Slide-template--15362996273255__90a84c93-c18e-4f37-b062-c4907b3c537d-1"
-                        role="group"
-                        aria-roledescription="Slide"
-                        aria-label="1 / 3"
-                        tabindex="-1"
-                        data-swiper-slide-index="0"
-                        style="width: 975px; margin-right: 30px;"
-                    >
-                        <div class="slideshow__media ">
-                            {% if section.settings.image9 != blank -%}
-                                {{-
-                                    section.settings.image9
-                                    | image_url:
-                                        height: section.settings.image9height,
-                                        width: section.settings.image9width
-                                    | image_tag: class: 'desktop-slider', loading: 'lazy'
-                                -}}
-                            {%- endif -%}
-                            {%- if section.settings.image10 != blank -%}
-                                {{-
-                                    section.settings.image10
-                                    | image_url:
-                                        height: section.settings.image10height,
-                                        width: section.settings.image10width
-                                    | image_tag: class: 'mobile-slider', loading: 'lazy'
-                                -}}
-                            {%- endif %}
-                        </div>
-                        <div class="slideshow__text-wrapper banner__content banner__content--bottom-left page-width">
-                            <div class="slideshow__text banner__box content-container content-container--full-width-mobile color-accent-1 gradient slideshow__text--left slideshow__text-mobile--center">
-                                <h2 class="banner__heading ">{{ section.settings.heading5 }}</h2>
-                                <div class="banner__text">
-                                    <span>Babies keep moving...crawl, sit, climb</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<style>
+    .banner-section {
+        display: flex;
+        flex-wrap: wrap;
+    }
 
-                <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal">
-                    <span
-                        class="swiper-pagination-bullet swiper-pagination-bullet-active"
-                        tabindex="0"
-                        role="button"
-                        aria-label="Go to slide 1"
-                        aria-current="true"
-                    ></span
-                    ><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2"></span
-                    ><span
-                        class="swiper-pagination-bullet"
-                        tabindex="0"
-                        role="button"
-                        aria-label="Go to slide 3"
-                    ></span>
-                </div>
+    .banner {
+        padding: 20px;
+        text-align: center;
+        color: white;
+    }
 
-                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-            </div>
+    .banner-large {
+        background-color: #4CAF50; /* Màu xanh lá cây */
+        flex: 0 0 50%; /* Chiếm 50% chiều rộng */
+    }
+
+    .banner-small {
+        background-color: #2196F3; /* Màu xanh dương */
+        flex: 0 0 12.5%; /* Chiếm 12.5% chiều rộng */
+    }
+
+    .featured-content {
+        margin: auto; /* Căn giữa nội dung */
+    }
+
+    .link {
+        color: #fff; /* Màu chữ link */
+        text-decoration: underline; /* Gạch chân chữ link */
+    }
+</style>
+
+<div class="banner-section">
+    <div class="banner banner-large">
+        <div class="featured-content">
+            <h3>Onesie</h3>
+            <a class="link" href="/">23 items</a>    
         </div>
-    </slideshow-component>
+    </div>
+    <div class="banner banner-small">
+        <h3>Banner nhỏ 1</h3>
+        <a class="link" href="/">Link 1</a>
+    </div>
+    <div class="banner banner-small">
+        <h3>Banner nhỏ 2</h3>
+        <a class="link" href="/">Link 2</a>
+    </div>
+    <div class="banner banner-small">
+        <h3>Banner nhỏ 3</h3>
+        <a class="link" href="/">Link 3</a>
+    </div>
+    <div class="banner banner-small">
+        <h3>Banner nhỏ 4</h3>
+        <a class="link" href="/">Link 4</a>
+    </div>
 </div>
-{% schema %}
-{
-    "name": "haha",
-    "settings": [
-        {
-            "type": "image_picker",
-            "id": "image1",
-            "label": "Image 1"
-        },
-        {
-            "type": "text",
-            "id": "image1height",
-            "label": "Image 1 height",
-            "default": "840"
-        },
-        {
-            "type": "text",
-            "id": "image1width",
-            "label": "Image 1 width",
-            "default": "840"
-        },
-        {
-            "type": "image_picker",
-            "id": "image2",
-            "label": "Image 2"
-        },
-        {
-            "type": "text",
-            "id": "image2height",
-            "label": "Image 2 height",
-            "default": "840"
-        },
-        {
-            "type": "text",
-            "id": "image2width",
-            "label": "Image 2 width",
-            "default": "840"
-        },
-        {
-            "type": "image_picker",
-            "id": "image3",
-            "label": "Image 3"
-        },
-        {
-            "type": "text",
-            "id": "image3height",
-            "label": "Image 3 height",
-            "default": "900"
-        },
-        {
-            "type": "text",
-            "id": "image3width",
-            "label": "Image 3 width",
-            "default": "900"
-        },
-        {
-            "type": "image_picker",
-            "id": "image4",
-            "label": "Image 4"
-        },
-        {
-            "type": "text",
-            "id": "image4height",
-            "label": "Image 4 height",
-            "default": "900"
-        },
-        {
-            "type": "text",
-            "id": "image4width",
-            "label": "Image 4 width",
-            "default": "900"
-        },
-        {
-            "type": "image_picker",
-            "id": "image5",
-            "label": "Image 5"
-        },
-        {
-            "type": "text",
-            "id": "image5height",
-            "label": "Image 5 height",
-            "default": "900"
-        },
-        {
-            "type": "text",
-            "id": "image5width",
-            "label": "Image 5 width",
-            "default": "900"
-        },
-        {
-            "type": "image_picker",
-            "id": "image6",
-            "label": "Image 6"
-        },
-        {
-            "type": "text",
-            "id": "image6height",
-            "label": "Image 6 height",
-            "default": "900"
-        },
-        {
-            "type": "text",
-            "id": "image6width",
-            "label": "Image 6 width",
-            "default": "900"
-        },
-        {
-            "type": "image_picker",
-            "id": "image7",
-            "label": "Image 7"
-        },
-        {
-            "type": "text",
-            "id": "image7height",
-            "label": "Image 7 height",
-            "default": "840"
-        },
-        {
-            "type": "text",
-            "id": "image7width",
-            "label": "Image 7 width",
-            "default": "840"
-        },
-        {
-            "type": "image_picker",
-            "id": "image8",
-            "label": "Image 8"
-        },
-        {
-            "type": "text",
-            "id": "image8height",
-            "label": "Image 8 height",
-            "default": "840"
-        },
-        {
-            "type": "text",
-            "id": "image8width",
-            "label": "Image 8 width",
-            "default": "840"
-        },
-        {
-            "type": "image_picker",
-            "id": "image9",
-            "label": "Image 9"
-        },
-        {
-            "type": "text",
-            "id": "image9height",
-            "label": "Image 9 height",
-            "default": "900"
-        },
-        {
-            "type": "text",
-            "id": "image9width",
-            "label": "Image 9 width",
-            "default": "900"
-        },
-        {
-            "type": "image_picker",
-            "id": "image10",
-            "label": "Image 10"
-        },
-        {
-            "type": "text",
-            "id": "image10height",
-            "label": "Image 10 height",
-            "default": "900"
-        },
-        {
-            "type": "text",
-            "id": "image10width",
-            "label": "Image 10 width",
-            "default": "900"
-        },
-        {
-            "type": "text",
-            "id": "heading1",
-            "label": "Heading 1",
-            "default": "Solid food is fun!"
-        },
-        {
-            "type": "text",
-            "id": "heading2",
-            "label": "Heading 2",
-            "default": "Cradle to Walking"
-        },
-        {
-            "type": "text",
-            "id": "heading3",
-            "label": "Heading 3",
-            "default": "Our toys are safe"
-        },
-        {
-            "type": "text",
-            "id": "heading4",
-            "label": "Heading 4",
-            "default": "Solid food is fun!"
-        },
-        {
-            "type": "text",
-            "id": "heading5",
-            "label": "Heading 5",
-            "default": "Cradle to Walking"
-        }
-    ],
-    "presets": [
-        {
-            "name": "haha"
-        }
-    ]
-}
-{% endschema %}
