@@ -1,5 +1,5 @@
 <style>
-    .banner-section {
+     .banner-section {
         display: flex;
         flex-wrap: wrap; /* Cho phép nội dung cuộn lại trên màn hình nhỏ */
     }
@@ -37,9 +37,9 @@
         background-color: #2196F3; /* Màu xanh dương */
         flex: 0 0 50%; /* Chiếm 50% chiều rộng trong mỗi hàng */
         padding: 20px;
-        text-align: center;
-        color: white;
+        text-align: left; /* Căn trái chữ */
         position: relative; /* Để định vị nội dung bên trong */
+        overflow: hidden; /* Giấu phần link khi không hover */
     }
 
     .banner-small img {
@@ -49,13 +49,23 @@
 
     .small-content {
         position: absolute; /* Định vị nội dung */
-        bottom: 20px; /* Cách đáy 20px */
-        left: 50%; /* Căn giữa theo chiều ngang */
-        transform: translateX(-50%); /* Giúp căn giữa chính xác */
-        text-align: center; /* Căn giữa chữ */
+        top: 20px; /* Cách đỉnh 20px */
+        left: 20px; /* Cách trái 20px */
         color: white; /* Màu chữ */
     }
 
+    .link {
+        position: absolute; /* Định vị link */
+        bottom: 20px; /* Cách đáy 20px */
+        left: -100%; /* Bắt đầu từ bên trái */
+        transition: left 0.3s ease; /* Hiệu ứng chuyển động */
+        color: #fff; /* Màu chữ link */
+        text-decoration: underline; /* Gạch chân chữ link */
+    }
+
+    .banner-small:hover .link {
+        left: 20px; /* Xuất hiện khi hover */
+    }
     /* Responsive Styles */
     @media (max-width: 1024px) {
         .banner-large {
