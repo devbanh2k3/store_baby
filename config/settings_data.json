@@ -1148,6 +1148,7 @@
           "3188df25-14f8-48d0-916e-f521179515b7",
           "cde48bdd-a8b7-4a7a-be1a-34d38431cf0f"
         ],
+        "disabled": true,
         "settings": {
           "title": "",
           "section_layout": "full_w",
@@ -1348,7 +1349,7 @@
           "item_color": ""
         }
       },
-      "test_demo_7PyeTp": {
+      "test_demo_UgbCpW": {
         "type": "test_demo",
         "settings": {
         }
@@ -1358,6 +1359,7 @@
       "1566216750178",
       "1620303876b256c9cb",
       "1567074526361",
+      "test_demo_UgbCpW",
       "1566388074654",
       "1569058050008",
       "1569058924109",
@@ -1368,8 +1370,7 @@
       "1620310523b877313a",
       "162031053381861dbd",
       "1620310556021b6ffb",
-      "1620310568520faf17",
-      "test_demo_7PyeTp"
+      "1620310568520faf17"
     ]
   },
   "presets": {
