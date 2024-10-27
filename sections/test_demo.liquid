@@ -1,23 +1,38 @@
 <style>
     .banner-section {
         display: flex;
-        flex-wrap: wrap;
-    }
-
-    .banner {
-        padding: 20px;
-        text-align: center;
-        color: white;
     }
 
     .banner-large {
         background-color: #4CAF50; /* Màu xanh lá cây */
         flex: 0 0 50%; /* Chiếm 50% chiều rộng */
+        padding: 20px;
+        text-align: center;
+        color: white;
+    }
+
+    .banner-large img {
+        max-width: 100%; /* Đảm bảo hình ảnh vừa với container */
+        height: auto; /* Giữ tỷ lệ khung hình */
+    }
+
+    .banner-small-container {
+        display: flex;
+        flex-wrap: wrap;
+        flex: 0 0 50%; /* Chiếm 50% chiều rộng */
     }
 
     .banner-small {
         background-color: #2196F3; /* Màu xanh dương */
-        flex: 0 0 12.5%; /* Chiếm 12.5% chiều rộng */
+        flex: 0 0 50%; /* Chiếm 50% chiều rộng trong mỗi hàng */
+        padding: 20px;
+        text-align: center;
+        color: white;
+    }
+
+    .banner-small img {
+        max-width: 100%; /* Đảm bảo hình ảnh vừa với container */
+        height: auto; /* Giữ tỷ lệ khung hình */
     }
 
     .featured-content {
@@ -31,27 +46,34 @@
 </style>
 
 <div class="banner-section">
-    <div class="banner banner-large">
+    <div class="banner-large">
+        <img src="link_to_your_large_image.jpg" alt="Onesie">
         <div class="featured-content">
             <h3>Onesie</h3>
             <a class="link" href="/">23 items</a>    
         </div>
     </div>
-    <div class="banner banner-small">
-        <h3>Banner nhỏ 1</h3>
-        <a class="link" href="/">Link 1</a>
-    </div>
-    <div class="banner banner-small">
-        <h3>Banner nhỏ 2</h3>
-        <a class="link" href="/">Link 2</a>
-    </div>
-    <div class="banner banner-small">
-        <h3>Banner nhỏ 3</h3>
-        <a class="link" href="/">Link 3</a>
-    </div>
-    <div class="banner banner-small">
-        <h3>Banner nhỏ 4</h3>
-        <a class="link" href="/">Link 4</a>
+    <div class="banner-small-container">
+        <div class="banner-small">
+            <img src="link_to_your_small_image1.jpg" alt="Banner nhỏ 1">
+            <h3>Banner nhỏ 1</h3>
+            <a class="link" href="/">Link 1</a>
+        </div>
+        <div class="banner-small">
+            <img src="link_to_your_small_image2.jpg" alt="Banner nhỏ 2">
+            <h3>Banner nhỏ 2</h3>
+            <a class="link" href="/">Link 2</a>
+        </div>
+        <div class="banner-small">
+            <img src="link_to_your_small_image3.jpg" alt="Banner nhỏ 3">
+            <h3>Banner nhỏ 3</h3>
+            <a class="link" href="/">Link 3</a>
+        </div>
+        <div class="banner-small">
+            <img src="link_to_your_small_image4.jpg" alt="Banner nhỏ 4">
+            <h3>Banner nhỏ 4</h3>
+            <a class="link" href="/">Link 4</a>
+        </div>
     </div>
 </div>
 
