@@ -2,6 +2,7 @@
     .banner-section {
         display: flex;
     }
+
     .banner-large {
         background-color: #4CAF50; /* Màu xanh lá cây */
         flex: 0 0 50%; /* Chiếm 50% chiều rộng */
@@ -9,15 +10,18 @@
         text-align: center;
         color: white;
     }
+
     .banner-large img {
         max-width: 100%; /* Đảm bảo hình ảnh vừa với container */
         height: auto; /* Giữ tỷ lệ khung hình */
     }
+
     .banner-small-container {
         display: flex;
         flex-wrap: wrap;
         flex: 0 0 50%; /* Chiếm 50% chiều rộng */
     }
+
     .banner-small {
         background-color: #2196F3; /* Màu xanh dương */
         flex: 0 0 50%; /* Chiếm 50% chiều rộng trong mỗi hàng */
@@ -25,13 +29,16 @@
         text-align: center;
         color: white;
     }
+
     .banner-small img {
         max-width: 100%; /* Đảm bảo hình ảnh vừa với container */
         height: auto; /* Giữ tỷ lệ khung hình */
     }
+
     .featured-content {
         margin: auto; /* Căn giữa nội dung */
     }
+
     .link {
         color: #fff; /* Màu chữ link */
         text-decoration: underline; /* Gạch chân chữ link */
@@ -40,91 +47,45 @@
 
 <div class="banner-section">
     <div class="banner-large">
-        <img src="{{ settings.large_image }}" alt="{{ settings.large_image_alt }}">
+        <img src="link_to_your_large_image.jpg" alt="Onesie">
         <div class="featured-content">
-            <h3>{{ settings.large_title }}</h3>
-            <a class="link" href="{{ settings.large_link }}">{{ settings.large_link_text }}</a>
+            <h3>Onesie</h3>
+            <a class="link" href="/">23 items</a>    
         </div>
     </div>
     <div class="banner-small-container">
-        {% for small_banner in settings.small_banners %}
         <div class="banner-small">
-            <img src="{{ small_banner.image }}" alt="{{ small_banner.alt }}">
-            <h3>{{ small_banner.title }}</h3>
-            <a class="link" href="{{ small_banner.link }}">{{ small_banner.link_text }}</a>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcqu-WYDYhXj_FRbcuGYbi1hVLXUMAgHasag&s" alt="Banner nhỏ 1">
+            <h3>Banner nhỏ 1</h3>
+            <a class="link" href="/">Link 1</a>
         </div>
-        {% endfor %}
+        <div class="banner-small">
+            <img src="link_to_your_small_image2.jpg" alt="Banner nhỏ 2">
+            <h3>Banner nhỏ 2</h3>
+            <a class="link" href="/">Link 2</a>
+        </div>
+        <div class="banner-small">
+            <img src="link_to_your_small_image3.jpg" alt="Banner nhỏ 3">
+            <h3>Banner nhỏ 3</h3>
+            <a class="link" href="/">Link 3</a>
+        </div>
+        <div class="banner-small">
+            <img src="link_to_your_small_image4.jpg" alt="Banner nhỏ 4">
+            <h3>Banner nhỏ 4</h3>
+            <a class="link" href="/">Link 4</a>
+        </div>
     </div>
 </div>
 
 {% schema %}
 {
-    "name": "Banner Section",
-    "settings": [
-        {
-            "type": "image_picker",
-            "id": "large_image",
-            "label": "Large Image"
-        },
-        {
-            "type": "text",
-            "id": "large_image_alt",
-            "label": "Large Image Alt Text"
-        },
-        {
-            "type": "text",
-            "id": "large_title",
-            "label": "Large Title"
-        },
-        {
-            "type": "url",
-            "id": "large_link",
-            "label": "Large Link"
-        },
-        {
-            "type": "text",
-            "id": "large_link_text",
-            "label": "Large Link Text"
-        }
-    ],
-    "blocks": [
-        {
-            "type": "small_banner",
-            "name": "Small Banner",
-            "settings": [
-                {
-                    "type": "image_picker",
-                    "id": "image",
-                    "label": "Small Banner Image"
-                },
-                {
-                    "type": "text",
-                    "id": "alt",
-                    "label": "Image Alt Text"
-                },
-                {
-                    "type": "text",
-                    "id": "title",
-                    "label": "Banner Title"
-                },
-                {
-                    "type": "url",
-                    "id": "link",
-                    "label": "Banner Link"
-                },
-                {
-                    "type": "text",
-                    "id": "link_text",
-                    "label": "Link Text"
-                }
-            ]
-        }
-    ],
-    "presets": [
-        {
-            "name": "Default",
-            "category": "Custom"
-        }
-    ]
+  "name": "Banner Section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Default",
+      "category": "Custom"
+    }
+  ]
 }
 {% endschema %}
