@@ -35,81 +35,76 @@
   ]
 }
 {% endschema %}
-<div class="banner-section-continer">
-   <h2>Featured Products</h2>
+<div class="banner-section-container">
+  <h2>Featured Products</h2>
   <div class="featured-products">
- 
-  <div class="grid">
-    {% for i in (1..4) %}
-      {% capture product_key %}product_{{ i }}{% endcapture %}
-      {% assign product = section.settings[product_key] %}
-      {% if product %}
-        <div class="grid-item">
-          <a href="{{ product.url }}">
-            <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}" class="product-image">
-          </a>
-          <div class="product-info">
+    <div class="grid">
+      {% for i in (1..4) %}
+        {% capture product_key %}product_{{ i }}{% endcapture %}
+        {% assign product = section.settings[product_key] %}
+        {% if product %}
+          <div class="grid-item">
             <a href="{{ product.url }}">
-              <h3>{{ product.title }}</h3>
+              <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}" class="product-image">
             </a>
-            <p>
+            <div class="product-info">
               <a href="{{ product.url }}">
-                {{ product.price | money }}
+                <h3>{{ product.title }}</h3>
               </a>
-            </p>
+              <p>
+                <a href="{{ product.url }}">
+                  {{ product.price | money }}
+                </a>
+              </p>
+            </div>
           </div>
-        </div>
-      {% endif %}
-    {% endfor %}
+        {% endif %}
+      {% endfor %}
+    </div>
   </div>
 </div>
-</div>
-
 
 <style>
-   .banner-section-continer {
-        width: 100%;
-         
-    }
+.banner-section-container {
+    width: 100%;
+    text-align: center; /* Căn giữa tiêu đề */
+}
+
 .featured-products {
-    text-align: center;
-        width: 90%; /* Chiếm 80% chiều rộng */
-        margin: 0 auto; /* Căn giữa section */
-        display: flex;
-        flex-wrap: wrap; /* Cho phép nội dung cuộn lại trên màn hình nhỏ */
-  
+    width: 90%; /* Chiếm 90% chiều rộng */
+    margin: 0 auto; /* Căn giữa section */
 }
 
 .grid {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: center; /* Căn giữa các sản phẩm */
+    flex-wrap: wrap; /* Cho phép nội dung cuộn lại trên màn hình nhỏ */
 }
 
 .grid-item {
-  width: 22%; /* Điều chỉnh không gian cho từng sản phẩm */
-  margin-bottom: 20px;
-  border-radius: 10px; /* Bo góc */
-  overflow: hidden; /* Ẩn phần thừa */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Đổ bóng */
-  transition: transform 0.2s; /* Hiệu ứng chuyển tiếp */
+    width: 22%; /* Điều chỉnh không gian cho từng sản phẩm */
+    margin: 10px; /* Thêm khoảng cách giữa các sản phẩm */
+    border-radius: 10px; /* Bo góc */
+    overflow: hidden; /* Ẩn phần thừa */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Đổ bóng */
+    transition: transform 0.2s; /* Hiệu ứng chuyển tiếp */
 }
 
 .grid-item:hover {
-  transform: scale(1.05); /* Phóng to khi hover */
+    transform: scale(1.05); /* Phóng to khi hover */
 }
 
 .product-image {
-  width: 100%; /* Full width */
-  height: auto;
+    width: 100%; /* Full width */
+    height: auto;
 }
 
 .product-info {
-  margin-top: 10px; /* Khoảng cách giữa hình ảnh và thông tin */
+    margin-top: 10px; /* Khoảng cách giữa hình ảnh và thông tin */
 }
 
 .grid-item a {
-  text-decoration: none;
-  color: inherit; /* Kế thừa màu cho các liên kết */
+    text-decoration: none;
+    color: inherit; /* Kế thừa màu cho các liên kết */
 }
 </style>
