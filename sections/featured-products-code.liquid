@@ -111,7 +111,7 @@
 
 .add-to-cart-form {
     position: absolute;
-    bottom: 10px; /* Đặt nút cách đáy một chút */
+    bottom: -30px; /* Đặt nút nằm ngoài hình ảnh ban đầu */
     left: 50%; /* Căn giữa theo chiều ngang */
     transform: translate(-50%, 0); /* Căn giữa */
     width: auto; /* Chiều rộng tự động */
@@ -119,12 +119,11 @@
     justify-content: center; /* Căn giữa nút */
     opacity: 0; /* Ẩn nút ban đầu */
     transition: opacity 0.3s ease, transform 0.3s ease; /* Hiệu ứng chuyển tiếp */
-    transform: translateY(20px); /* Đặt nút dưới vị trí */
 }
 
 .grid-item:hover .add-to-cart-form {
     opacity: 1; /* Hiện nút khi hover */
-    transform: translate(-50%, -50px); /* Di chuyển nút lên vị trí ban đầu một chút */
+    transform: translate(-50%, -10px); /* Di chuyển nút lên vị trí ban đầu */
 }
 
 .product-info {
