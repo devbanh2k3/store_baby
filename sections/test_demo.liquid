@@ -1,10 +1,12 @@
 <style>
-  .banner-section-continer{
-    width: 100%;
-  }
-      .banner-section {
-         text-align: center;
-        width: 80%;
+   .banner-section-continer {
+        width: 100%;
+    }
+
+    .banner-section {
+        text-align: center;
+        width: 80%; /* Chiếm 80% chiều rộng */
+        margin: 0 auto; /* Căn giữa section */
         display: flex;
         flex-wrap: wrap; /* Cho phép nội dung cuộn lại trên màn hình nhỏ */
     }
@@ -80,6 +82,7 @@
     .banner-small:hover .link {
         left: 20px; /* Xuất hiện khi hover */
     }
+
     /* Responsive Styles */
     @media (max-width: 1024px) {
         .banner-large {
@@ -89,23 +92,24 @@
         .banner-small {
             flex: 0 0 50%; /* Hai banner nhỏ mỗi hàng trên tablet */
         }
+
         .banner-small-container {
-        display: flex;
-        flex-wrap: wrap; /* Cho phép cuộn lại trên màn hình nhỏ */
-        flex: 0 0 100%; /* Chiếm 50% chiều rộng */
-    }
+            display: flex;
+            flex-wrap: wrap; /* Cho phép cuộn lại trên màn hình nhỏ */
+            flex: 0 0 100%; /* Chiếm 50% chiều rộng */
+        }
     }
 
     @media (max-width: 768px) {
         .banner-small {
             flex: 0 0 100%; /* Chiếm toàn bộ chiều rộng trên màn hình nhỏ */
         }
-      
-    .banner-small-container {
-        display: flex;
-        flex-wrap: wrap; /* Cho phép cuộn lại trên màn hình nhỏ */
-        flex: 0 0 100%; /* Chiếm 50% chiều rộng */
-    }
+
+        .banner-small-container {
+            display: flex;
+            flex-wrap: wrap; /* Cho phép cuộn lại trên màn hình nhỏ */
+            flex: 0 0 100%; /* Chiếm 50% chiều rộng */
+        }
     }
 </style>
 <div class="banner-section-continer">
