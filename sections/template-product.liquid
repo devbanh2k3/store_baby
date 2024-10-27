@@ -1,7 +1,7 @@
 <div class="product-template">
   <div class="product-gallery">
     <div class="main-image">
-      <img src="{{ product.images[0].src }}" alt="{{ product.title }}" id="main-product-image">
+      <img src="{{ product.images.src }}" alt="{{ product.title }}" id="main-product-image">
     </div>
     <div class="thumbnail-images">
       {% for image in product.images %}
