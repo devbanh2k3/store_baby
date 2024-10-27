@@ -1376,8 +1376,8 @@
         "settings": {
           "product_1": "test",
           "product_2": "test",
-          "product_3": "",
-          "product_4": ""
+          "product_3": "test",
+          "product_4": "test"
         }
       }
     },
