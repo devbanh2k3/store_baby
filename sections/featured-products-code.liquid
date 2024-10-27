@@ -56,6 +56,10 @@
                   {{ product.price | money }}
                 </a>
               </p>
+              <form action="/cart/add" method="post" enctype="multipart/form-data" class="add-to-cart-form">
+                <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                <button type="submit" class="add-to-cart-button">Add to Cart</button>
+              </form>
             </div>
           </div>
         {% endif %}
@@ -83,7 +87,7 @@
 
 .grid-item {
     width: 22%; /* Điều chỉnh không gian cho từng sản phẩm */
-    margin: 20px; /* Thêm khoảng cách giữa các sản phẩm */
+    margin: 10px; /* Thêm khoảng cách giữa các sản phẩm */
     border-radius: 10px; /* Bo góc */
     overflow: hidden; /* Ẩn phần thừa */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Đổ bóng */
@@ -100,8 +104,25 @@
 }
 
 .product-info {
-    backgroud:#F5F5F5;
     margin-top: 10px; /* Khoảng cách giữa hình ảnh và thông tin */
+}
+
+.add-to-cart-form {
+    margin-top: 10px; /* Khoảng cách giữa thông tin và nút */
+}
+
+.add-to-cart-button {
+    background-color: #007bff; /* Màu nền nút */
+    color: white; /* Màu chữ */
+    border: none; /* Không viền */
+    padding: 10px 15px; /* Padding cho nút */
+    border-radius: 5px; /* Bo góc nút */
+    cursor: pointer; /* Con trỏ chuột thay đổi khi hover */
+    transition: background-color 0.3s; /* Hiệu ứng chuyển tiếp */
+}
+
+.add-to-cart-button:hover {
+    background-color: #0056b3; /* Màu nền khi hover */
 }
 
 .grid-item a {
