@@ -1,14 +1,16 @@
 <style>
     .banner-section {
         display: flex;
+        flex-wrap: wrap; /* Cho phép nội dung cuộn lại trên màn hình nhỏ */
     }
 
     .banner-large {
         background-color: #4CAF50; /* Màu xanh lá cây */
-        flex: 0 0 50%; /* Chiếm 50% chiều rộng */
+        flex: 0 0 100%; /* Chiếm toàn bộ chiều rộng trên màn hình nhỏ */
         padding: 20px;
         text-align: center;
         color: white;
+        position: relative; /* Để có thể định vị chữ bên trong */
     }
 
     .banner-large img {
@@ -16,10 +18,19 @@
         height: auto; /* Giữ tỷ lệ khung hình */
     }
 
+    .featured-content {
+        position: absolute; /* Định vị nội dung */
+        top: 50%; /* Căn giữa theo chiều dọc */
+        left: 50%; /* Căn giữa theo chiều ngang */
+        transform: translate(-50%, -50%); /* Giúp căn giữa chính xác */
+        text-align: center; /* Căn giữa chữ */
+        color: white; /* Màu chữ */
+    }
+
     .banner-small-container {
         display: flex;
         flex-wrap: wrap;
-        flex: 0 0 50%; /* Chiếm 50% chiều rộng */
+        flex: 0 0 100%; /* Chiếm toàn bộ chiều rộng trên màn hình nhỏ */
     }
 
     .banner-small {
@@ -28,6 +39,7 @@
         padding: 20px;
         text-align: center;
         color: white;
+        position: relative; /* Để định vị nội dung bên trong */
     }
 
     .banner-small img {
@@ -35,13 +47,24 @@
         height: auto; /* Giữ tỷ lệ khung hình */
     }
 
-    .featured-content {
-        margin: auto; /* Căn giữa nội dung */
+    .small-content {
+        position: absolute; /* Định vị nội dung */
+        bottom: 20px; /* Cách đáy 20px */
+        left: 50%; /* Căn giữa theo chiều ngang */
+        transform: translateX(-50%); /* Giúp căn giữa chính xác */
+        text-align: center; /* Căn giữa chữ */
+        color: white; /* Màu chữ */
     }
 
     .link {
         color: #fff; /* Màu chữ link */
         text-decoration: underline; /* Gạch chân chữ link */
+    }
+
+    @media (max-width: 768px) {
+        .banner-small {
+            flex: 0 0 100%; /* Chiếm toàn bộ chiều rộng trên màn hình nhỏ */
+        }
     }
 </style>
 
@@ -50,29 +73,37 @@
         <img src="link_to_your_large_image.jpg" alt="Onesie">
         <div class="featured-content">
             <h3>Onesie</h3>
-            <a class="link" href="/">23 items</a>    
+            <a class="link" href="/">23 items</a>
         </div>
     </div>
     <div class="banner-small-container">
         <div class="banner-small">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcqu-WYDYhXj_FRbcuGYbi1hVLXUMAgHasag&s" alt="Banner nhỏ 1">
-            <h3>Banner nhỏ 1</h3>
-            <a class="link" href="/">Link 1</a>
+            <div class="small-content">
+                <h3>Banner nhỏ 1</h3>
+                <a class="link" href="/">Link 1</a>
+            </div>
         </div>
         <div class="banner-small">
             <img src="link_to_your_small_image2.jpg" alt="Banner nhỏ 2">
-            <h3>Banner nhỏ 2</h3>
-            <a class="link" href="/">Link 2</a>
+            <div class="small-content">
+                <h3>Banner nhỏ 2</h3>
+                <a class="link" href="/">Link 2</a>
+            </div>
         </div>
         <div class="banner-small">
             <img src="link_to_your_small_image3.jpg" alt="Banner nhỏ 3">
-            <h3>Banner nhỏ 3</h3>
-            <a class="link" href="/">Link 3</a>
+            <div class="small-content">
+                <h3>Banner nhỏ 3</h3>
+                <a class="link" href="/">Link 3</a>
+            </div>
         </div>
         <div class="banner-small">
             <img src="link_to_your_small_image4.jpg" alt="Banner nhỏ 4">
-            <h3>Banner nhỏ 4</h3>
-            <a class="link" href="/">Link 4</a>
+            <div class="small-content">
+                <h3>Banner nhỏ 4</h3>
+                <a class="link" href="/">Link 4</a>
+            </div>
         </div>
     </div>
 </div>
