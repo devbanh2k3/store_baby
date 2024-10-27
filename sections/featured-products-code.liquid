@@ -1,6 +1,95 @@
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "Featured Products",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Select Featured Products"
+    },
+    {
+      "type": "product",
+      "id": "product_1",
+      "label": "Product 1"
+    },
+    {
+      "type": "product",
+      "id": "product_2",
+      "label": "Product 2"
+    },
+    {
+      "type": "product",
+      "id": "product_3",
+      "label": "Product 3"
+    },
+    {
+      "type": "product",
+      "id": "product_4",
+      "label": "Product 4"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Products",
+      "category": "Custom"
+    }
+  ]
+}
 {% endschema %}
+
+<div class="featured-products">
+  <h2>Featured Products</h2>
+  <div class="grid">
+    {% for i in (1..4) %}
+      {% capture product_key %}product_{{ i }}{% endcapture %}
+      {% assign product = section.settings[product_key] %}
+      {% if product %}
+        <div class="grid-item">
+          <a href="{{ product.url }}">
+            <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}" class="product-image">
+          </a>
+          <div class="product-info">
+            <a href="{{ product.url }}">
+              <h3>{{ product.title }}</h3>
+            </a>
+            <p>
+              <a href="{{ product.url }}">
+                {{ product.price | money }}
+              </a>
+            </p>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+.featured-products {
+  text-align: center;
+}
+
+.grid {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.grid-item {
+  width: 22%; /* Điều chỉnh cho không gian */
+  margin-bottom: 20px;
+}
+
+.product-image {
+  width: 80%; /* Chiếm 80% chiều rộng */
+  height: auto;
+}
+
+.product-info {
+  margin-top: 10px; /* Khoảng cách giữa hình ảnh và thông tin */
+}
+
+.grid-item a {
+  text-decoration: none;
+  color: inherit; /* Kế thừa màu cho các liên kết */
+}
+</style>
