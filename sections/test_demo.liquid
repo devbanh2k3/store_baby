@@ -1,5 +1,5 @@
 <style>
-      .banner-section {
+     .banner-section {
         display: flex;
         flex-wrap: wrap; /* Cho phép nội dung cuộn lại trên màn hình nhỏ */
     }
@@ -35,10 +35,18 @@
 
     .banner-small {
         background-color: #2196F3; /* Màu xanh dương */
-        flex: 0 0 50%; /* Chiếm 50% chiều rộng trong mỗi hàng */
+        flex: 0 0 45%; /* Chiếm 45% chiều rộng trong mỗi hàng */
+        margin: 10px; /* Khoảng cách giữa các ô */
         padding: 0; /* Bỏ padding để hình ảnh full */
         position: relative; /* Để định vị nội dung bên trong */
         overflow: hidden; /* Giấu phần ngoài */
+        border-radius: 10px; /* Bo góc cho ô */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Đổ bóng */
+        transition: box-shadow 0.3s ease; /* Hiệu ứng khi hover */
+    }
+
+    .banner-small:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Đổ bóng đậm hơn khi hover */
     }
 
     .banner-small img {
