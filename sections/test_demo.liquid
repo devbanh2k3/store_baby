@@ -79,17 +79,19 @@
     }
 
     .link {
-       bottom: 10px; /* Cách đáy 10px */
-        left: 10px; /* Cách trái 10px */
+     
         position: absolute; /* Định vị link */
-       
+        bottom: 20px; /* Cách đáy 20px */
+        left: -100%; /* Bắt đầu từ bên trái */
         transition: left 0.3s ease; /* Hiệu ứng chuyển động */
         color: #fff; /* Màu chữ link */
         text-decoration: underline; /* Gạch chân chữ link */
     }
 
     .banner-small:hover .link {
-        left: 20px; /* Xuất hiện khi hover */
+       
+        bottom: 10px; /* Cách đáy 10px */
+        left: 10px; /* Cách trái 10px */
     }
 
     /* Responsive Styles */
