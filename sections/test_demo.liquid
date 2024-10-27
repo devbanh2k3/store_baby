@@ -1,10 +1,9 @@
 <style>
-    .banner-section {
-        text-align: center;
+      .banner-section {
+         text-align: center;
         width: 80%;
         display: flex;
         flex-wrap: wrap; /* Cho phép nội dung cuộn lại trên màn hình nhỏ */
-        gap: 10px; /* Khoảng cách giữa các banner */
     }
 
     .banner-large {
@@ -13,8 +12,6 @@
         padding: 0; /* Bỏ padding để hình ảnh full */
         position: relative; /* Để có thể định vị chữ bên trong */
         overflow: hidden; /* Giấu phần ngoài */
-        border-radius: 10px; /* Bo góc cho banner lớn */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Đổ bóng */
     }
 
     .banner-large img {
@@ -36,7 +33,7 @@
         display: flex;
         flex-wrap: wrap; /* Cho phép cuộn lại trên màn hình nhỏ */
         flex: 0 0 50%; /* Chiếm 50% chiều rộng */
-        gap: 10px; /* Khoảng cách giữa các ô nhỏ */
+        justify-content: space-between; /* Căn giữa các ô nhỏ */
     }
 
     .banner-small {
@@ -80,23 +77,32 @@
     .banner-small:hover .link {
         left: 20px; /* Xuất hiện khi hover */
     }
-
     /* Responsive Styles */
     @media (max-width: 1024px) {
         .banner-large {
             flex: 0 0 100%; /* Chiếm toàn bộ chiều rộng trên tablet */
-            margin-bottom: 10px; /* Khoảng cách dưới cho banner lớn */
         }
 
         .banner-small {
-            flex: 0 0 calc(50% - 10px); /* Hai banner nhỏ mỗi hàng trên tablet */
+            flex: 0 0 50%; /* Hai banner nhỏ mỗi hàng trên tablet */
         }
+        .banner-small-container {
+        display: flex;
+        flex-wrap: wrap; /* Cho phép cuộn lại trên màn hình nhỏ */
+        flex: 0 0 100%; /* Chiếm 50% chiều rộng */
+    }
     }
 
     @media (max-width: 768px) {
         .banner-small {
             flex: 0 0 100%; /* Chiếm toàn bộ chiều rộng trên màn hình nhỏ */
         }
+      
+    .banner-small-container {
+        display: flex;
+        flex-wrap: wrap; /* Cho phép cuộn lại trên màn hình nhỏ */
+        flex: 0 0 100%; /* Chiếm 50% chiều rộng */
+    }
     }
 </style>
 
